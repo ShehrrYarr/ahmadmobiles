@@ -28,7 +28,7 @@ class CreateMobilesTable extends Migration
             $table->string('battery_health')->nullable();
 
             $table->timestamps();
-            $table->enum('availability', ['Available', 'Sold'])->default('Available');
+            $table->string('availability')->default('Available');
             $table->timestamp('sold_at')->nullable();
             $table->boolean('is_transfer')->default(false);
             $table->enum('is_approve', ['Approved', 'Not_Approved'])->default('Not_Approved');

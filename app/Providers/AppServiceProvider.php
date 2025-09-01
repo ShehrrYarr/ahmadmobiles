@@ -33,12 +33,6 @@ class AppServiceProvider extends ServiceProvider
 
         Schema::defaultStringLength(191);
 
-         if (config('database.default') === 'mysql') {
-        DB::getDoctrineSchemaManager()
-          ->getDatabasePlatform()
-          ->registerDoctrineTypeMapping('enum', 'string');
-    }
-
         View::composer('user_navbar', function ($view) {
             $users = User::where('id', '!=', Auth::id())->get();
 
