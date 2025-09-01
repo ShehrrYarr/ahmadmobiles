@@ -310,10 +310,10 @@
                                 <ul class="navbar-nav social share-list mt-0 ml-auto">
 
                                     <li class="nav-item">
-                                        <a href="https://www.facebook.com/share/1MCLU6RjLC/?mibextid=wwXIfr"><i class="icon-social-facebook"></i></a>
+                                        <a href=""><i class="icon-social-facebook"></i></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="https://www.tiktok.com/@alikhokhar2222?_t=ZS-8yZo1AGjsN6&_r=1" class="nav-link"><i class="bi bi-tiktok"></i></a>
+                                        <a href="" class="nav-link"><i class="bi bi-tiktok"></i></a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#" class="nav-link"><i class="bi bi-whatsapp"></i></a>
@@ -348,7 +348,7 @@
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             <i class="icon-phone mr-2"></i>
-                                          +923004557434
+                                          +92300000000
 
                                         </a>
                                     </li>
