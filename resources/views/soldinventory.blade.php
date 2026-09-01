@@ -313,6 +313,22 @@
                             </div>
 
                         </div>
+                        <div class="card-header latest-update-heading">
+                            <form method="GET" action="{{ route('soldinventory') }}" class="form-inline d-flex flex-wrap align-items-end" style="gap: 10px;">
+                                <div>
+                                    <label for="start_date" class="d-block">From</label>
+                                    <input type="date" name="start_date" id="start_date" class="form-control"
+                                        value="{{ $startDate->format('Y-m-d') }}" max="{{ now()->format('Y-m-d') }}">
+                                </div>
+                                <div>
+                                    <label for="end_date" class="d-block">To</label>
+                                    <input type="date" name="end_date" id="end_date" class="form-control"
+                                        value="{{ $endDate->format('Y-m-d') }}" max="{{ now()->format('Y-m-d') }}">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                                <a href="{{ route('soldinventory') }}" class="btn btn-outline-secondary">Reset</a>
+                            </form>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration" id="soldTable">
                                 <thead>

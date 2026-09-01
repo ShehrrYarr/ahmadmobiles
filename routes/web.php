@@ -156,10 +156,18 @@ Route::get('/managerecentinventory', function () {
 
 
 Route::get('/soldinventory', function () {
+    $startDate = request('start_date')
+        ? Carbon::parse(request('start_date'))->startOfDay()
+        : Carbon::now()->subDays(7)->startOfDay();
+    $endDate = request('end_date')
+        ? Carbon::parse(request('end_date'))->endOfDay()
+        : Carbon::now()->endOfDay();
+
     $mobile = Mobile::where('user_id', auth()->user()->id)
         ->where('availability', 'Sold')
         ->where('is_transfer', false)
         ->where('is_approve', 'Not_Approved')
+        ->whereBetween('sold_at', [$startDate, $endDate])
         ->get();
 
     // Calculate the sum of the profit for the $mobile collection
@@ -204,8 +212,8 @@ Route::get('/soldinventory', function () {
     // Calculate the overall profit
     $overAllProfit = $totalProfitMobile + $totalProfitTransfer;
 
-    return view('soldinventory', compact('mobile', 'transferMobiles', 'totalProfitMobile', 'totalProfitTransfer', 'sumCostPriceMobile', 'sumSellingPriceTransfer', 'sumCostPriceTransfer', 'overAllProfit', 'sumSellingPriceMobile'));
-})->middleware('auth');
+    return view('soldinventory', compact('mobile', 'transferMobiles', 'totalProfitMobile', 'totalProfitTransfer', 'sumCostPriceMobile', 'sumSellingPriceTransfer', 'sumCostPriceTransfer', 'overAllProfit', 'sumSellingPriceMobile', 'startDate', 'endDate'));
+})->middleware('auth')->name('soldinventory');
 
 Route::get('/soldapprovedinventory', function () {
 
