@@ -3,6 +3,7 @@
 <!-- BEGIN: Head-->
 
 <head>
+    <base href="{{ url('/') }}/">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -116,25 +117,25 @@
                 <li class=" nav-item"><a href="#"><i class="feather icon-book-open"></i><span class="menu-title" data-i18n="Templates">Inventory</span></a>
                     <ul class="menu-content">
                          <li class="@if (\Request::is('totalinventory')) active @endif"><a class="menu-item"
-                                href="/totalinventory" data-i18n="1 columns">Total Inventory</a>
+                                href="{{ url('/totalinventory') }}" data-i18n="1 columns">Total Inventory</a>
                         </li>
                         <li class="@if (\Request::is('managerecentinventory')) active @endif"><a class="menu-item"
-                                href="/managerecentinventory" data-i18n="2 columns">Recent Inventory</a>
+                                href="{{ url('/managerecentinventory') }}" data-i18n="2 columns">Recent Inventory</a>
                         </li>
-                        <li class="@if(\Request::is('manageinventory')) active @endif"><a class="menu-item" href="/manageinventory" data-i18n="3 columns">Manage Inventory</a>
+                        <li class="@if(\Request::is('manageinventory')) active @endif"><a class="menu-item" href="{{ url('/manageinventory') }}" data-i18n="3 columns">Manage Inventory</a>
                         </li>
-                        <li class="@if(\Request::is('soldinventory')) active @endif"><a class="menu-item" href="/soldinventory" data-i18n="4 columns">Sold Inventory</a>
-                        </li>
-                        <li class="@if (\Request::is('pendinginventory')) active @endif"><a class="menu-item"
-                                href="/pendinginventory" data-i18n="5 columns">Pending Inventory</a>
+                        <li class="@if(\Request::is('soldinventory')) active @endif"><a class="menu-item" href="{{ url('/soldinventory') }}" data-i18n="4 columns">Sold Inventory</a>
                         </li>
                         <li class="@if (\Request::is('pendinginventory')) active @endif"><a class="menu-item"
-                                href="/deleteinventory" data-i18n="5 columns">Delete Inventory</a>
+                                href="{{ url('/pendinginventory') }}" data-i18n="5 columns">Pending Inventory</a>
                         </li>
-                        <li class="@if(\Request::is('soldapprovedinventory')) active @endif"><a class="menu-item" href="/soldapprovedinventory" data-i18n="5 columns">Sold Approve Inventory</a>
+                        <li class="@if (\Request::is('pendinginventory')) active @endif"><a class="menu-item"
+                                href="{{ url('/deleteinventory') }}" data-i18n="5 columns">Delete Inventory</a>
+                        </li>
+                        <li class="@if(\Request::is('soldapprovedinventory')) active @endif"><a class="menu-item" href="{{ url('/soldapprovedinventory') }}" data-i18n="5 columns">Sold Approve Inventory</a>
                         </li>
                           <li class="@if (\Request::is('allinventory')) active @endif"><a class="menu-item"
-                                href="/allinventory" data-i18n="6 columns">All Inventory</a>
+                                href="{{ url('/allinventory') }}" data-i18n="6 columns">All Inventory</a>
                         </li>
                     </ul>
                 </li>
@@ -165,7 +166,7 @@
                             data-i18n="Templates">Restore Inventory</span></a>
                     <ul class="menu-content">
                         <li class="@if (\Request::is('restoremobiles')) active @endif"><a class="menu-item"
-                                href="/restoremobiles" data-i18n="1 columns">Restore Mobiles</a>
+                                href="{{ url('/restoremobiles') }}" data-i18n="1 columns">Restore Mobiles</a>
                         </li>
 
 
@@ -176,7 +177,7 @@
                             data-i18n="Templates">All Shop's Mobile</span></a>
                     <ul class="menu-content">
                         <li class="@if (\Request::is('allshopmobile')) active @endif"><a class="menu-item"
-                                href="/allshopmobile" data-i18n="1 columns">All Mobiles</a>
+                                href="{{ url('/allshopmobile') }}" data-i18n="1 columns">All Mobiles</a>
                         </li>
 
 
@@ -191,16 +192,16 @@
                 <li class="nav-item"><a href="app-contacts.html"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Contacts">{{$data['user']->name}}</span></a>
                     <ul class="menu-content">
                         <li class="@if (\Request::is('othertotalinventory')) active @endif"><a class="menu-item"
-                                    href="/othertotalinventory/{{ $data['user']->id }}" data-i18n="1 columns">Total Inventory</a>
+                                    href="{{ url('/othertotalinventory/'.$data['user']->id) }}" data-i18n="1 columns">Total Inventory</a>
                             </li>
-                        <li class="@if(\Request::is('otherinventory')) active @endif"><a class="menu-item" href="/otherinventory/{{$data['user']->id}}" data-i18n="1 columns">Inventory</a></li>
+                        <li class="@if(\Request::is('otherinventory')) active @endif"><a class="menu-item" href="{{ url('/otherinventory/'.$data['user']->id) }}" data-i18n="1 columns">Inventory</a></li>
                         
-                        <li class="@if(\Request::is('othersoldinventory')) active @endif"><a class="menu-item" href="/othersoldinventory/{{$data['user']->id}}" data-i18n="2 columns">Sold Inventory</a></li>
+                        <li class="@if(\Request::is('othersoldinventory')) active @endif"><a class="menu-item" href="{{ url('/othersoldinventory/'.$data['user']->id) }}" data-i18n="2 columns">Sold Inventory</a></li>
                         <li class="@if (\Request::is('otherpendinginventory')) active @endif"><a class="menu-item"
-                                    href="/otherpendinginventory/{{ $data['user']->id }}" data-i18n="2 columns">Pending
+                                    href="{{ url('/otherpendinginventory/'.$data['user']->id) }}" data-i18n="2 columns">Pending
                                     Inventory</a></li>
                         <li class="@if (\Request::is('otherdeleteinventory')) active @endif"><a class="menu-item"
-                                    href="/otherdeleteinventory/{{ $data['user']->id }}" data-i18n="2 columns">Delete
+                                    href="{{ url('/otherdeleteinventory/'.$data['user']->id) }}" data-i18n="2 columns">Delete
                                     Inventory</a></li>
                         {{-- <li class="@if(\Request::is('othertransferinventory')) active @endif"><a class="menu-item" href="/othertransferinventory/{{$data['user']->id}}" data-i18n="3 columns">Received Inventory</a></li>
                         <li class="@if(\Request::is('othertransfersoldinventory')) active @endif"><a class="menu-item" href="/othertransfersoldinventory/{{$data['user']->id}}" data-i18n="4 columns">Sold Received Inventory</a></li> --}}
@@ -212,19 +213,19 @@
                                                         class="menu-title" data-i18n="Templates">Add values</span></a>
                                         <ul class="menu-content">
                                                 <li class="@if (\Request::is('showcompanies')) active @endif"><a
-                                                                class="menu-item" href="/showcompanies"
+                                                                class="menu-item" href="{{ url('/showcompanies') }}"
                                                                 data-i18n="1 columns">Companies</a>
                                                 </li>
                                                 <li class="@if (\Request::is('showgroups')) active @endif"><a
-                                                                class="menu-item" href="/showgroups"
+                                                                class="menu-item" href="{{ url('/showgroups') }}"
                                                                 data-i18n="1 columns">Groups</a>
                                                 </li>
                                                 <li class="@if (\Request::is('showmobilenames')) active @endif"><a
-                                                                class="menu-item" href="/showmobilenames"
+                                                                class="menu-item" href="{{ url('/showmobilenames') }}"
                                                                 data-i18n="1 columns">MobileNames</a>
                                                 </li>
                                                  <li class="@if (\Request::is('showusers')) active @endif">
-                                                        <a class="menu-item" href="/showusers"
+                                                        <a class="menu-item" href="{{ url('/showusers') }}"
                                                                 data-i18n="1 columns">Manage Users</a>
                                                 </li>
 

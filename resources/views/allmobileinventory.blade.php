@@ -55,7 +55,7 @@
                     data-target="#exampleModal">
                     <i class="feather icon-smartphone" style="font-size: 20px;"></i>
                 </button>
-                <a href="/mobiles/bulk-entry" type="button" class="btn btn-primary gradient-button4 ml-1">
+                <a href="{{ url('/mobiles/bulk-entry') }}" type="button" class="btn btn-primary gradient-button4 ml-1">
                 <i class="feather icon-copy" style="font-size: 20px;"></i>
             </a>
 
