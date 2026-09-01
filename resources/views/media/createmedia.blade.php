@@ -223,7 +223,7 @@
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/editmedia/' + id,
+                url: BASE_URL + '/editmedia/' + id,
                 success: function(data) {
                     $("#mediaUpdate").trigger("reset");
                     $('#media_id').val(data.result.id);
@@ -246,7 +246,7 @@
             var formData = new FormData(this);
             var csrf_token = $('meta[name="csrf-token"]').attr('content');
             $.ajax({
-                url: '/updatemedia',
+                url: BASE_URL + '/updatemedia',
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': csrf_token
@@ -268,7 +268,7 @@
         function deleteFnF(id) {
             $.ajax({
                 type: "GET",
-                url: '/deletemedia/' + id,
+                url: BASE_URL + '/deletemedia/' + id,
                 success: location.reload
 
             });

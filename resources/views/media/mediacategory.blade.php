@@ -213,7 +213,7 @@
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/editcategory/' + id,
+                url: BASE_URL + '/editcategory/' + id,
                 success: function(data) {
                     // console.log(data.result.id);
 
@@ -235,7 +235,7 @@
             var formData = new FormData(this);
             var csrf_token = $('meta[name="csrf-token"]').attr('content');
             $.ajax({
-                url: '/update',
+                url: BASE_URL + '/update',
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': csrf_token
@@ -256,7 +256,7 @@
         function deleteFnF(id) {
             $.ajax({
                 type: "GET",
-                url: '/deletecategory/' + id,
+                url: BASE_URL + '/deletecategory/' + id,
                 success: location.reload
 
             });

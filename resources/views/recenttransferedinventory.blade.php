@@ -349,7 +349,7 @@
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/findmobile/' + id,
+                url: BASE_URL + '/findmobile/' + id,
                 success: function(data) {
                     $("#transfermobile").trigger("reset");
 
@@ -374,7 +374,7 @@
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/findmobile/' + id,
+                url: BASE_URL + '/findmobile/' + id,
                 success: function(data) {
                     $("#moveInventoryMobile").trigger("reset");
 
@@ -398,7 +398,7 @@
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/findapmobile/' + id,
+                url: BASE_URL + '/findapmobile/' + id,
                 success: function(data) {
                     $("#soldmobile").trigger("reset");
 

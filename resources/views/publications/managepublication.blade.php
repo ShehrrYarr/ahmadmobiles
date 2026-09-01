@@ -176,7 +176,7 @@
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/editpublication/' + id,
+                url: BASE_URL + '/editpublication/' + id,
                 success: function(data) {
                     $("#publishUpdate").trigger("reset");
                     var base_url = '<?= url('public/publications') ?>';
@@ -206,7 +206,7 @@
             var formData = new FormData(this);
             var csrf_token = $('meta[name="csrf-token"]').attr('content');
             $.ajax({
-                url: '/updatepublication',
+                url: BASE_URL + '/updatepublication',
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': csrf_token

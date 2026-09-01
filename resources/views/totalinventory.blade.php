@@ -117,7 +117,7 @@
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/findmobile/' + id,
+                url: BASE_URL + '/findmobile/' + id,
                 success: function(data) {
                     $("#transfermobile").trigger("reset");
 

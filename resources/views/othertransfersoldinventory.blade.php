@@ -200,7 +200,7 @@
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/findapmobile/' + id,
+                url: BASE_URL + '/findapmobile/' + id,
                 success: function(data) {
                     $("#approvemobile").trigger("reset");
 

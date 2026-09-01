@@ -708,7 +708,7 @@
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/editmobile/' + id,
+                url: BASE_URL + '/editmobile/' + id,
                 success: function(data) {
                    
 
@@ -753,7 +753,7 @@ if (data.result.mobile_name_id) {
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/editmobile/' + id,
+                url: BASE_URL + '/editmobile/' + id,
                 success: function(data) {
                     $("#deletemobile").trigger("reset");
 
@@ -780,7 +780,7 @@ if (data.result.mobile_name_id) {
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/editmobile/' + id,
+                url: BASE_URL + '/editmobile/' + id,
                 success: function(data) {
                     
                     $("#soldmobile").trigger("reset");
@@ -814,7 +814,7 @@ if (data.result.mobile_name_id) {
             var id = value;
             $.ajax({
                 type: "GET",
-                url: '/findmobile/' + id,
+                url: BASE_URL + '/findmobile/' + id,
                 success: function(data) {
                     $("#transfermobile").trigger("reset");
 
