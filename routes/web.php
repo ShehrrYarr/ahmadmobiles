@@ -209,8 +209,16 @@ Route::get('/soldinventory', function () {
     // Calculate the sum of the cost_price for the $transferMobiles collection
     $sumCostPriceTransfer = $transferMobiles->sum('mobile.cost_price');
 
-    // Calculate the overall profit
-    $overAllProfit = $totalProfitMobile + $totalProfitTransfer;
+    // Overall Profit is an all-time total, independent of the Sold Profit date filter
+    $allTimeProfitMobile = Mobile::where('user_id', auth()->user()->id)
+        ->where('availability', 'Sold')
+        ->where('is_transfer', false)
+        ->where('is_approve', 'Not_Approved')
+        ->get()
+        ->sum(function ($mobile) {
+            return $mobile->selling_price - $mobile->cost_price;
+        });
+    $overAllProfit = $allTimeProfitMobile + $totalProfitTransfer;
 
     return view('soldinventory', compact('mobile', 'transferMobiles', 'totalProfitMobile', 'totalProfitTransfer', 'sumCostPriceMobile', 'sumSellingPriceTransfer', 'sumCostPriceTransfer', 'overAllProfit', 'sumSellingPriceMobile', 'startDate', 'endDate'));
 })->middleware('auth')->name('soldinventory');
